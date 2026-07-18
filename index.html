@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FR 科技 | 官方網站</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* 全面改版：科技藍紫調 */
+            --primary: #00d2ff; /* 霓虹科技藍 */
+            --accent: #7928ca;  /* 高壓冷調紫 */
+            --bg: #030206;      /* 極深紫黑底 */
+            --card-bg: rgba(255, 255, 255, 0.02); /* 液態玻璃基底 */
+            --text-main: #ffffff;
+            --text-dim: #a5a2b0; /* 帶藍紫調的灰白 */
+            --glass-border: rgba(255, 255, 255, 0.08); /* 玻璃邊框 reflection */
+            --glass-blur: blur(25px); /* 磨砂玻璃核心度數 */
+        }
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Segoe UI', 'PingFang TC', sans-serif;
+            margin: 0;
+            line-height: 1.8;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* 頂級液態背景渲染層 - 藍紫流體氣泡 */
+        .fluid-bg-container {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -1; pointer-events: none;
+            overflow: hidden;
+            background: radial-gradient(circle at 50% 50%, #0a0614 0%, #030205 100%);
+        }
+
+        .fluid-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.25;
+            mix-blend-mode: screen;
+            animation: fluidMovement 20s infinite alternate ease-in-out;
+        }
+
+        .blob-1 {
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            top: -10%; left: -10%;
+            animation-duration: 25s;
+        }
+
+        .blob-2 {
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            bottom: 10%; right: -5%;
+            animation-duration: 18s;
+            animation-delay: -5s;
+        }
+
+        @keyframes fluidMovement {
+            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            50% { transform: translate(80px, 50px) scale(1.15) rotate(180deg); }
+            100% { transform: translate(-40px, 120px) scale(0.9) rotate(360deg); }
+        }
+
+        /* 導覽列 - 極致液態玻璃 */
+        header {
+            position: fixed;
+            top: 0; width: 100%; padding: 20px 8%;
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(3, 2, 6, 0.6);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 1000;
+        }
+
+        .logo { font-size: 1.4rem; font-weight: 800; color: var(--primary); letter-spacing: 3px; text-shadow: 0 0 15px rgba(0,210,255,0.3); }
+        nav a { color: var(--text-dim); text-decoration: none; font-size: 0.9rem; margin-left: 25px; transition: 0.3s; }
+        nav a:hover { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
+
+        /* 英雄區塊 */
+        .hero {
+            height: 100vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center;
+            padding: 0 10%;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem); margin: 0;
+            background: linear-gradient(to right, #fff 40%, var(--primary));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-weight: 800; line-height: 1.2;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+        }
+
+        /* 數據指標 - 玻璃面板 */
+        .stats-bar {
+            display: flex; justify-content: center; gap: 80px;
+            padding: 50px 10%; 
+            background: rgba(255, 255, 255, 0.01);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .stat-item { text-align: center; }
+        .stat-num { font-size: 2.8rem; font-weight: 800; color: var(--primary); display: block; line-height: 1; text-shadow: 0 0 20px rgba(0,210,255,0.4); }
+        .stat-label { color: var(--text-dim); font-size: 0.8rem; letter-spacing: 2px; margin-top: 10px; display: block; }
+
+        /* 通用區塊樣式 */
+        .section { padding: 120px 10%; }
+        .section-title { text-align: center; margin-bottom: 80px; }
+        .section-title span { color: var(--primary); letter-spacing: 5px; font-size: 0.8rem; font-weight: bold; text-shadow: 0 0 8px rgba(0,210,255,0.2); }
+        .section-title h2 { font-size: 2.5rem; margin-top: 10px; }
+
+        /* 服務卡片 - 厚液態玻璃工藝 */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .card {
+            background: var(--card-bg); 
+            padding: 50px 40px; 
+            border-radius: 12px;
+            border: 1px solid var(--glass-border); 
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
+            position: relative; 
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        .card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(0,210,255,0.05), transparent); opacity: 0; transition: 0.4s; }
+        .card:hover::before { opacity: 1; }
+        .card:hover { 
+            border-color: rgba(0, 210, 255, 0.3); 
+            transform: translateY(-8px); 
+            background: rgba(255, 255, 255, 0.04); 
+            box-shadow: 0 30px 60px rgba(0, 210, 255, 0.08);
+        }
+        .card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 25px; filter: drop-shadow(0 0 10px rgba(0,210,255,0.4)); }
+
+        /* 技術詳細拆解區塊 */
+        .detail-section { display: flex; flex-wrap: wrap; gap: 50px; align-items: center; }
+        .detail-text { flex: 1; min-width: 300px; }
+        .detail-feature { margin-bottom: 30px; }
+        .detail-feature h4 { color: var(--primary); margin-bottom: 10px; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; }
+        .detail-feature p { color: var(--text-dim); font-size: 0.95rem; }
+
+        /* 流程區塊 - 懸浮玻璃條 */
+        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; }
+        .process-step { 
+            padding: 40px 30px; 
+            border: 1px solid var(--glass-border);
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 12px; 
+            position: relative; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+        .process-step:hover {
+            border-color: rgba(0, 210, 255, 0.2);
+            background: rgba(255,255,255,0.03);
+        }
+        .step-idx { position: absolute; top: -12px; left: 20px; background: var(--primary); color: #030206; font-weight: 800; font-size: 0.85rem; padding: 2px 10px; border-radius: 20px; box-shadow: 0 0 15px var(--primary); }
+        .process-step h3 { margin-top: 10px; font-size: 1.2rem; color: #fff; }
+        .process-step p { color: var(--text-dim); font-size: 0.85rem; margin: 0; }
+
+        /* 技術滾動 */
+        .tech-slider { background: rgba(0,0,0,0.4); padding: 40px 0; overflow: hidden; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); backdrop-filter: blur(5px); }
+        .tech-track { display: inline-block; white-space: nowrap; animation: scroll 30s linear infinite; }
+        .tech-track span { font-size: 1.2rem; color: #433d5c; margin: 0 40px; font-weight: 700; letter-spacing: 3px; transition: 0.3s; }
+        .tech-track span:hover { color: var(--primary); text-shadow: 0 0 8px var(--primary); }
+        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+        /* FAQ - 科技化內容 */
+        .faq-container { max-width: 900px; margin: 0 auto; }
+        .faq-item { background: var(--card-bg); margin-bottom: 15px; border: 1px solid var(--glass-border); border-radius: 8px; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); cursor: pointer; transition: 0.3s; }
+        .faq-item:hover { border-color: rgba(0, 210, 255, 0.4); background: rgba(255,255,255,0.03); }
+        .faq-q { padding: 25px; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 1.1rem; }
+        .faq-a { padding: 0 25px 25px; color: var(--text-dim); display: none; font-size: 0.95rem; border-top: 1px solid var(--glass-border); padding-top: 15px; line-height: 1.8; }
+
+        /* 懸浮按鈕67 */
+        .floating-group { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 10000; }
+        .f-btn { width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; text-decoration: none; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .btn-fr10 { background: linear-gradient(45deg, var(--primary), var(--accent)); color: #fff; font-weight: bold; font-size: 14px; text-align: center; box-shadow: 0 0 20px rgba(0,210,255,0.3); }
+        .btn-discord { background: #1f1e24; border: 1px solid var(--glass-border); backdrop-filter: blur(10px); font-size: 26px; color: #fff; }
+        .btn-discord:hover { color: var(--primary); border-color: var(--primary); box-shadow: 0 0 20px rgba(0,210,255,0.2); }
+        .f-btn:hover { transform: scale(1.15) translateY(-5px); }
+
+        /* 頁尾 */
+        footer { padding: 100px 10% 50px; background: rgba(3,2,5,0.85); border-top: 1px solid var(--glass-border); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; }
+        .footer-col h4 { margin-bottom: 25px; color: var(--primary); letter-spacing: 2px; text-shadow: 0 0 10px rgba(0,210,255,0.2); }
+        .footer-col ul { list-style: none; padding: 0; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col ul li a { color: var(--text-dim); text-decoration: none; transition: 0.3s; }
+        .footer-col ul li a:hover { color: var(--primary); padding-left: 8px; }
+        .footer-bottom { grid-column: 1 / -1; text-align: center; margin-top: 50px; padding-top: 30px; border-top: 1px solid var(--glass-border); color: #2e2a3c; font-size: 0.8rem; letter-spacing: 1px; }
+
+        @media (max-width: 992px) { footer { grid-template-columns: 1fr; text-align: center; } }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <!-- 動態液態流體背景層 -->
+    <div class="fluid-bg-container">
+        <div class="fluid-blob blob-1"></div>
+        <div class="fluid-blob blob-2"></div>
+    </div>
+
+    <header>
+        <div class="logo">FR TECHNOLOGY</div>
+        <nav>
+            <a href="#services">技術核心</a>
+            <a href="#advantage">深度優勢</a>
+            <a href="#process">開發流程</a>
+            <a href="#faq">FAQ</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <span style="color: var(--primary); letter-spacing: 5px; font-weight: bold; text-shadow: 0 0 10px rgba(0,210,255,0.3);">WEB ARCHITECT & SYSTEM SOFTWARE</span>
+        <h1 style="margin-top: 15px;">極致網頁工藝<br>與底層高效能運算</h1>
+        <p style="max-width: 700px; color: var(--text-dim); font-size: 1.2rem; margin-top: 25px;">FR 科技專精於現代前端技術、系統級核心開發與高性能運算，提供從直覺式使用者介面到極致系統優化的全方位解決方案。</p>
+        <div style="margin-top: 40px;">
+            <a href="#services" style="padding: 16px 48px; background: var(--primary); color: #030206; text-decoration: none; font-weight: bold; border-radius: 30px; box-shadow: 0 0 25px rgba(0,210,255,0.4); transition: 0.3s; letter-spacing: 1px;">技術文件瀏覽</a>
+        </div>
+    </section>
+
+    <div class="stats-bar">
+        <div class="stat-item">
+            <span class="stat-num">99.99%</span>
+            <span class="stat-label">SLA 可用性協議</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-num">0.8ms</span>
+            <span class="stat-label">系統原生編譯延遲</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-num">Tbps級</span>
+            <span class="stat-label">DDoS 防護頻寬</span>
+        </div>
+    </div>
+
+    <!-- 核心業務區塊 -->
+    <section class="section" id="services">
+        <div class="section-title">
+            <span>CORE INFRASTRUCTURE</span>
+            <h2>三大技術核心業務</h2>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <i class="fab fa-js-square"></i>
+                <h3>標準網頁建置 (Web App)</h3>
+                <p>精通以 HTML5 語意化架構為基底，結合 CSS3 現代排版與動畫，並注入原生 JavaScript 精準控制節點與高階非同步資料交互，打造極致流暢的前端用戶體驗。</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-terminal"></i>
+                <h3>硬體高效能與底層系統</h3>
+                <p>運用 C/C++ 進行記憶體手動管理與指標優化，針對作業系統層、硬體通訊協議、多執行緒併發處理及核心演算法進行高密度開發，提供最核心的算力支援。</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-cubes"></i>
+                <h3>高可靠度跨平台架構</h3>
+                <p>將高效能的 C/C++ 後端核心模組，與基於 Web 技術（JavaScript、CSS、HTML）打造的跨平台前端介面深度相融，實現兼具高執行效能與高維護性的軟體生態鏈。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 深度優勢區塊 -->
+    <section class="section detail-section" id="advantage" style="border-top: 1px solid var(--glass-border);">
+        <div class="detail-text">
+            <span style="color: var(--primary); font-weight: bold;">TECHNICAL SUPREMACY</span>
+            <h2 style="font-size: 2.5rem; margin: 15px 0;">工程級深度優勢</h2>
+            <p style="color: var(--text-dim); margin-bottom: 40px;">我們不只編寫頂層的畫面，更重視底層協議、硬體調配與數據流的高效運算。</p>
+            
+            <div class="detail-feature">
+                <h4><i class="fab fa-html5"></i> 頂級網頁標準優化</h4>
+                <p>嚴格實施 HTML 與 CSS 結構與樣式分離原則，透過高度精簡、結構明確的代碼，並配合 Vanilla JS（原生 JavaScript）優化，大幅消減資源載入阻礙，實現瞬時網頁呈現。</p>
+            </div>
+            <div class="detail-feature">
+                <h4><i class="fas fa-microchip"></i> C/C++ 系統級核心運算</h4>
+                <p>跳過高階語言的虛擬機消耗，直接對接硬體與記憶體。利用編譯型語言的編譯期優化與精準演算法，為超大型計算和資料高速處理提供毫秒級硬體反應速度。</p>
+            </div>
+            <div class="detail-feature">
+                <h4><i class="fas fa-shield-alt"></i> 安全威脅防護防護機制</h4>
+                <p>從前端的 Web 安全防護（防範 XSS、CSRF），到後端底層 C/C++ 記憶體安全指標（防止緩衝區溢位），打造從應用層到底層系統的雙重全方位防護壁壘。</p>
+            </div>
+        </div>
+        <div style="flex: 1; min-width: 300px; text-align: center; opacity: 0.7;">
+            <i class="fas fa-code-branch" style="font-size: 20rem; color: rgba(0,210,255,0.03); filter: drop-shadow(0 0 30px rgba(0,210,255,0.05));"></i>
+        </div>
+    </section>
+
+    <!-- 開發流程區塊 -->
+    <section class="section" id="process" style="border-top: 1px solid var(--glass-border);">
+        <div class="section-title">
+            <span>WORKFLOW</span>
+            <h2>嚴格的技術開發規範</h2>
+        </div>
+        <div class="process-grid">
+            <div class="process-step">
+                <div class="step-idx">01</div>
+                <h3>架構與系統規劃</h3>
+                <p>評估前端 HTML/CSS 視覺比重與底層 C++ 算法算力需求，規劃高吞吐量的資料傳輸網絡。</p>
+            </div>
+            <div class="process-step">
+                <div class="step-idx">02</div>
+                <h3>高效能核心編碼</h3>
+                <p>採用 C/C++ 研發底層重度運算模組，並透過 JavaScript 建立輕量化的高回應網頁前端系統。</p>
+            </div>
+            <div class="process-step">
+                <div class="step-idx">03</div>
+                <h3>全方位沙盒測試</h3>
+                <p>對網頁執行記憶體洩漏追蹤、執行緒死結模擬以及多網頁瀏覽器渲染效能調校，確保運作絕對平穩。</p>
+            </div>
+            <div class="process-step">
+                <div class="step-idx">04</div>
+                <h3>持續整合與部署</h3>
+                <p>經過自動化腳本優化（編譯器優化與靜態資源壓縮），以零中斷部署機制發布至全球高防網域。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技術滾動條32 -->
+    <div class="tech-slider">
+        <div class="tech-track">
+            <span>HTML5</span> <span>CSS3</span> <span>JAVASCRIPT</span> <span>C++</span> <span>C LANGUAGE</span> <span>NEXT.JS</span> <span>DOCKER</span> <span>KUBERNETES</span> <span>POSTGRESQL</span> <span>REDIS</span> 
+            <span>HTML5</span> <span>CSS3</span> <span>JAVASCRIPT</span> <span>C++</span> <span>C LANGUAGE</span> <span>NEXT.JS</span> <span>DOCKER</span> <span>KUBERNETES</span> <span>POSTGRESQL</span> <span>REDIS</span> 
+        </div>
+    </div>
+
+    <!-- 技術區8 -->
+    <section class="section" id="faq">
+        <div class="section-title">
+            <span>TECHNICAL Q&A</span>
+            <h2>核心技術 Q&A</h2>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-q">FR 科技如何融合網頁前端與 C/C++ 底層系統？ <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-a">我們透過高效的高階 API 或是 WebAssembly 技術，將 C/C++ 編譯的高效能底層核心與前端的 HTML/CSS/JavaScript 應用程序完美串聯，既能維持卓越的互動式視覺介面，又能具備工業級的數據運算性能。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">在網頁效能調優上，你們重視哪些指標？ <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-a">我們堅守「精準代碼」原則，拒絕引入臃腫套件。利用高度優化的 HTML 結構、高效率 CSS3 樣式渲染，以及對 JavaScript 事件迴圈與非同步處理的深度壓榨，確保核心網頁在各式終端上均能達到卓越的載入效能與零卡頓操作體驗。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">使用 C/C++ 開發核心有哪些穩定性保障措施？ <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-a">我們在日常開發中導入嚴謹的靜態代碼分析工具、動態記憶體檢測機制，並嚴格遵循現代 C++ 資源管理規範（RAII 與智慧指標），將底層開發最常見的記憶體崩潰或資源洩漏風險完全抹除，確保高併發環境下的超耐久運作。</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁尾 -->
+    <footer>
+        <div class="footer-col">
+            <h2 class="logo">FR TECH.</h2>
+            <p style="color: var(--text-dim); margin: 20px 0; line-height: 2;">技術驅動未來。FR 科技致力於打破技術壁壘，為現代數位生態提供最穩健、高效的軟體及系統解決方案。我們不只編寫程式，我們建構頂級數位工藝。</p>
+        </div>
+        <div class="footer-col">
+            <h4>技術導航</h4>
+            <ul>
+                <li><a href="#services">核心業務</a></li>
+                <li><a href="#advantage">深度優勢</a></li>
+                <li><a href="#process">技術規範</a></li>
+                <li><a href="#faq">核心技術問答</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>官方社群</h4>
+            <ul>
+                <li><a href="https://discord.gg/gVUmJK6s2Q" target="_blank"><i class="fab fa-discord"></i> Discord 頻道</a></li>
+                <li><a href="https://sites.google.com/view/top-10-tech-company-websites/fr-10%E5%A4%A7%E7%B6%B2%E7%AB%99?authuser=5" target="_blank"><i class="fas fa-list"></i> FR10 10大網站</a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 FR TECHNOLOGY。版權所有 <br>
+            2025-2027
+        </div>
+    </footer>
+
+   
+    <div class="floating-group">
+        <a href="https://sites.google.com/view/top-10-tech-company-websites/fr-10%E5%A4%A7%E7%B6%B2%E7%AB%99?authuser=5" class="f-btn btn-fr10" target="_blank">FR<br>10</a>
+        <a href="https://discord.gg/gVUmJK6s2Q" class="f-btn btn-discord" target="_blank"><i class="fab fa-discord"></i></a>
+    </div>
+
+    <script>
+        // 7
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const a = item.querySelector('.faq-a');
+                const icon = item.querySelector('i');
+                const isOpen = a.style.display === 'block';
+                document.querySelectorAll('.faq-a').forEach(el => el.style.display = 'none');
+                document.querySelectorAll('.faq-q i').forEach(i => i.className = 'fas fa-chevron-down');
+                
+                if (!isOpen) {
+                    a.style.display = 'block';
+                    icon.className = 'fas fa-chevron-up';
+                }
+            });
+        });
+
+        console.log("%cFR TECHNOLOGY", "color: #00d2ff; font-size: 50px; font-weight: bold; text-shadow: 0 0 15px rgba(0,210,255,0.5);");
+        document.addEventListener('contextmenu', e => e.preventDefault());
+    </script>
+</body>
+</html>
