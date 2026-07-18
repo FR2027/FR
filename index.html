@@ -15,7 +15,7 @@
             --text-main: #ffffff;
             --text-dim: #a5a2b0; /* 帶藍紫調的灰白 */
             --glass-border: rgba(255, 255, 255, 0.08); /* 玻璃邊框 reflection */
-            --glass-blur: blur(25px); /* 磨砂玻璃核心度數 */
+            --glass-blur: blur(25px); /* 磨砂玻璃11 */
         }
 
         * {
@@ -35,7 +35,7 @@
             position: relative;
         }
 
-        /* 頂級液態背景渲染層 - 藍紫流體氣泡 */
+        /* 泡 */
         .fluid-bg-container {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
@@ -74,7 +74,7 @@
             100% { transform: translate(-40px, 120px) scale(0.9) rotate(360deg); }
         }
 
-        /* 導覽列 - 極致液態玻璃 */
+        /* 導覽列 */
         header {
             position: fixed;
             top: 0; width: 100%; padding: 20px 8%;
@@ -90,7 +90,7 @@
         nav a { color: var(--text-dim); text-decoration: none; font-size: 0.9rem; margin-left: 25px; transition: 0.3s; }
         nav a:hover { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
 
-        /* 英雄區塊 */
+        /* 區塊 */
         .hero {
             height: 100vh; display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center;
@@ -106,7 +106,7 @@
             filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
         }
 
-        /* 數據指標 - 玻璃面板 */
+        /* 數據指標 */
         .stats-bar {
             display: flex; justify-content: center; gap: 80px;
             padding: 50px 10%; 
@@ -126,7 +126,7 @@
         .section-title span { color: var(--primary); letter-spacing: 5px; font-size: 0.8rem; font-weight: bold; text-shadow: 0 0 8px rgba(0,210,255,0.2); }
         .section-title h2 { font-size: 2.5rem; margin-top: 10px; }
 
-        /* 服務卡片 - 厚液態玻璃工藝 */
+        /* 液態玻璃 */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         .card {
             background: var(--card-bg); 
@@ -235,7 +235,7 @@
         <h1 style="margin-top: 15px;">極致網頁工藝<br>與底層高效能運算</h1>
         <p style="max-width: 700px; color: var(--text-dim); font-size: 1.2rem; margin-top: 25px;">FR 科技專精於現代前端技術、系統級核心開發與高性能運算，提供從直覺式使用者介面到極致系統優化的全方位解決方案。</p>
         <div style="margin-top: 40px;">
-            <a href="#services" style="padding: 16px 48px; background: var(--primary); color: #030206; text-decoration: none; font-weight: bold; border-radius: 30px; box-shadow: 0 0 25px rgba(0,210,255,0.4); transition: 0.3s; letter-spacing: 1px;">技術文件瀏覽</a>
+            <a href="#services" style="padding: 16px 48px; background: var(--primary); color: #030206; text-decoration: none; font-weight: bold; border-radius: 30px; box-shadow: 0 0 25px rgba(0,210,255,0.4); transition: 0.3s; letter-spacing: 1px;">專業項目</a>
         </div>
     </section>
 
@@ -254,11 +254,11 @@
         </div>
     </div>
 
-    <!-- 核心業務區塊 -->
+    <!-- 核心區塊 -->
     <section class="section" id="services">
         <div class="section-title">
             <span>CORE INFRASTRUCTURE</span>
-            <h2>三大技術核心業務</h2>
+            <h2>三大技術核心</h2>
         </div>
         <div class="grid">
             <div class="card">
