@@ -7,15 +7,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            /* 主題色：科技藍紫調 */
-            --primary: #00d2ff; /* 霓虹科技藍 */
-            --accent: #7928ca;  /* 高壓冷調紫 */
-            --bg: #030206;      /* 極深紫黑底 */
-            --card-bg: rgba(255, 255, 255, 0.02); /* 液態玻璃基底 */
+            /* ＦＲ科技公司版權所有 */
+            --primary: #00d2ff; /* ＦＲ科技公司版權所有 */
+            --accent: #7928ca;  /* ＦＲ科技公司版權所有 */
+            --bg: #030206;      /* ＦＲ科技公司版權所有 */
+            --card-bg: rgba(255, 255, 255, 0.02); /* ＦＲ科技公司版權所有 */
             --text-main: #ffffff;
-            --text-dim: #a5a2b0; /* 帶藍紫調的灰白 */
-            --glass-border: rgba(255, 255, 255, 0.08); /* 玻璃邊框 reflection */
-            --glass-blur: blur(25px); /* 磨砂玻璃度數 */
+            --text-dim: #a5a2b0; /* ＦＲ科技公司版權所有 */
+            --glass-border: rgba(255, 255, 255, 0.08); /* ＦＲ科技公司版權所有 */
+            --glass-blur: blur(25px); /* ＦＲ科技公司版權所有 */
         }
 
         * {
@@ -35,7 +35,7 @@
             position: relative;
         }
 
-        /* 液態背景動畫 */
+        /* ＦＲ科技公司版權所有 */
         .fluid-bg-container {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
@@ -74,7 +74,7 @@
             100% { transform: translate(-40px, 120px) scale(0.9) rotate(360deg); }
         }
 
-        /* 導覽列 RWD */
+        /* ＦＲ科技公司版權所有 */
         header {
             position: fixed;
             top: 0; width: 100%; padding: 18px 8%;
@@ -126,7 +126,7 @@
             text-shadow: 0 0 10px var(--primary); 
         }
 
-        /* 英雄區塊 */
+        /* ＦＲ科技公司版權所有 */
         .hero {
             min-height: 100vh;
             display: flex; 
@@ -156,7 +156,7 @@
             margin-top: 25px;
         }
 
-        /* 數據指標 RWD */
+        /* ＦＲ科技公司版權所有 */
         .stats-bar {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -173,13 +173,13 @@
         .stat-num { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; color: var(--primary); display: block; line-height: 1; text-shadow: 0 0 20px rgba(0,210,255,0.4); }
         .stat-label { color: var(--text-dim); font-size: 0.8rem; letter-spacing: 2px; margin-top: 10px; display: block; }
 
-        /* 通用區塊樣式 */
+        /* ＦＲ科技公司版權所有 */
         .section { padding: 100px 8%; }
         .section-title { text-align: center; margin-bottom: 60px; }
         .section-title span { color: var(--primary); letter-spacing: 4px; font-size: 0.8rem; font-weight: bold; text-shadow: 0 0 8px rgba(0,210,255,0.2); }
         .section-title h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-top: 10px; }
 
-        /* 液態玻璃卡片 Grid */
+        /* ＦＲ科技公司版權所有 */
         .grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
@@ -218,7 +218,7 @@
 
         .card i { font-size: 2.3rem; color: var(--primary); margin-bottom: 20px; filter: drop-shadow(0 0 10px rgba(0,210,255,0.4)); }
 
-        /* 🏢 子公司區塊專用樣式 */
+        /* ＦＲ科技公司版權所有 */
         .subsidiary-card {
             text-align: center;
             display: flex;
@@ -251,7 +251,7 @@
             object-fit: contain;
         }
 
-        /* 技術詳細拆解區塊 RWD */
+        /* ＦＲ科技公司版權所有 */
         .detail-section { 
             display: flex; 
             flex-wrap: wrap; 
@@ -264,7 +264,7 @@
         .detail-feature h4 { color: var(--primary); margin-bottom: 8px; font-size: 1.15rem; display: flex; align-items: center; gap: 10px; }
         .detail-feature p { color: var(--text-dim); font-size: 0.95rem; margin: 0; }
 
-        /* 流程區塊 RWD */
+        /* ＦＲ科技公司版權所有 */
         .process-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
@@ -303,7 +303,7 @@
         .process-step h3 { margin-top: 10px; font-size: 1.15rem; color: #fff; }
         .process-step p { color: var(--text-dim); font-size: 0.85rem; margin: 0; }
 
-        /* 技術滾動條 */
+        /* ＦＲ科技公司版權所有 */
         .tech-slider { 
             background: rgba(0,0,0,0.4); 
             padding: 30px 0; 
@@ -318,14 +318,14 @@
         .tech-track span:hover { color: var(--primary); text-shadow: 0 0 8px var(--primary); }
         @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-        /* FAQ RWD */
+        /* ＦＲ科技公司版權所有 */
         .faq-container { max-width: 900px; margin: 0 auto; }
         .faq-item { background: var(--card-bg); margin-bottom: 15px; border: 1px solid var(--glass-border); border-radius: 8px; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); cursor: pointer; transition: 0.3s; }
         .faq-item:hover { border-color: rgba(0, 210, 255, 0.4); background: rgba(255,255,255,0.03); }
         .faq-q { padding: 20px 25px; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 1rem; }
         .faq-a { padding: 0 25px 20px; color: var(--text-dim); display: none; font-size: 0.9rem; border-top: 1px solid var(--glass-border); padding-top: 15px; line-height: 1.8; }
 
-        /* 懸浮按鈕 RWD */
+        /* ＦＲ科技公司版權所有 */
         .floating-group { 
             position: fixed; 
             bottom: 25px; 
@@ -369,7 +369,7 @@
         .btn-discord:hover { color: var(--primary); border-color: var(--primary); box-shadow: 0 0 20px rgba(0,210,255,0.2); }
         .f-btn:hover { transform: scale(1.1) translateY(-3px); }
 
-        /* 頁尾 RWD */
+        /* ＦＲ科技公司版權所有 */
         footer { 
             padding: 80px 8% 40px; 
             background: rgba(3,2,5,0.85); 
@@ -388,7 +388,7 @@
         .footer-col ul li a:hover { color: var(--primary); padding-left: 6px; }
         .footer-bottom { grid-column: 1 / -1; text-align: center; margin-top: 40px; padding-top: 25px; border-top: 1px solid var(--glass-border); color: #433d5c; font-size: 0.8rem; letter-spacing: 1px; }
 
-        /* 📱 手機與平板專用響應式 Breakpoints */
+        /* ＦＲ科技公司版權所有 */
         @media (max-width: 768px) {
             header {
                 padding: 15px 5%;
@@ -438,16 +438,16 @@
 </head>
 <body oncontextmenu="return false;">
 
-    <!-- 動態液態流體背景層 -->
+    <!-- ＦＲ科技公司版權所有 -->
     <div class="fluid-bg-container">
         <div class="fluid-blob blob-1"></div>
         <div class="fluid-blob blob-2"></div>
     </div>
 
-    <!-- 頁首導覽列 -->
+    <!-- ＦＲ科技公司版權所有 -->
     <header>
         <div class="logo-container">
-            <!-- FR 科技 Logo  -->
+            <!-- ＦＲ科技公司版權所有 -->
             <img src="https://i.ibb.co/gb084hMs/Background-Eraser-20260722-111040111.jpg" alt="FR Tech Logo" class="header-logo-img">
             <div class="logo">FR TECHNOLOGY</div>
         </div>
@@ -459,7 +459,7 @@
         </nav>
     </header>
 
-    <!-- 主視覺區塊 -->
+    <!-- ＦＲ科技公司版權所有 -->
     <section class="hero">
         <span style="color: var(--primary); letter-spacing: 4px; font-weight: bold; font-size: 0.85rem; text-shadow: 0 0 10px rgba(0,210,255,0.3);">WEB ARCHITECT & SYSTEM SOFTWARE</span>
         <h1>極致網頁工藝<br>與底層高效能運算</h1>
@@ -469,7 +469,7 @@
         </div>
     </section>
 
-    <!-- 數據指標橫條 -->
+    <!-- ＦＲ科技公司版權所有 -->
     <div class="stats-bar">
         <div class="stat-item">
             <span class="stat-num">99.99%</span>
@@ -485,27 +485,27 @@
         </div>
     </div>
 
-    <!-- 🏢 新增：旗下子公司生態系區塊 -->
+    <!-- ＦＲ科技公司版權所有 -->
     <section class="section" id="subsidiaries">
         <div class="section-title">
             <span>CORPORATE ECOSYSTEM</span>
             <h2>旗下子公司生態系</h2>
         </div>
         <div class="grid">
-            <!-- RR 科技公司 -->
+            <!-- ＦＲ科技公司版權所有 -->
             <div class="card subsidiary-card">
                 <div class="subsidiary-logo-wrap">
-                    <!-- RR 科技 Logo -->
+                    <!-- ＦＲ科技公司版權所有 -->
                     <img src="https://i.ibb.co/xS5SwXP6/Background-Eraser-20260717-175952860.jpg" alt="RR 科技 Logo" class="subsidiary-logo">
                 </div>
                 <h3>RR 科技公司</h3>
                 <p style="color: var(--text-dim); font-size: 0.9rem;">作為 FR 科技的核心子公司，專注於創新科技軟體研發、系統資源調控與高併發後端架構之建置部署。</p>
             </div>
 
-            <!-- HLSS 專業網頁公司 -->
+            <!-- ＦＲ科技公司版權所有 -->
             <div class="card subsidiary-card">
                 <div class="subsidiary-logo-wrap">
-                    <!-- HLSS Logo-->
+                    <!-- ＦＲ科技公司版權所有 -->
                     <img src="https://i.ibb.co/DHpZzSdt/Background-Eraser-20260718-170940407.jpg" alt="HLSS 專業網頁 Logo" class="subsidiary-logo">
                 </div>
                 <h3>HLSS 專業網頁公司</h3>
@@ -514,7 +514,7 @@
         </div>
     </section>
 
-    <!-- 核心區塊 -->
+    <!-- ＦＲ科技公司版權所有 -->
     <section class="section" id="services" style="border-top: 1px solid var(--glass-border);">
         <div class="section-title">
             <span>CORE INFRASTRUCTURE</span>
@@ -539,7 +539,7 @@
         </div>
     </section>
 
-    <!-- 深度優勢區塊 -->
+    <!-- ＦＲ科技公司版權所有 -->
     <section class="section detail-section" id="advantage" style="border-top: 1px solid var(--glass-border);">
         <div class="detail-text">
             <span style="color: var(--primary); font-weight: bold; font-size: 0.85rem;">TECHNICAL SUPREMACY</span>
@@ -564,7 +564,7 @@
         </div>
     </section>
 
-    <!-- 開發流程區塊 -->
+    <!-- ＦＲ科技公司版權所有 -->
     <section class="section" id="process" style="border-top: 1px solid var(--glass-border);">
         <div class="section-title">
             <span>WORKFLOW</span>
@@ -594,7 +594,7 @@
         </div>
     </section>
 
-    <!-- 技術滾動條 -->
+    <!-- ＦＲ科技公司版權所有 -->
     <div class="tech-slider">
         <div class="tech-track">
             <span>HTML5</span> <span>CSS3</span> <span>JAVASCRIPT</span> <span>C++</span> <span>C LANGUAGE</span> <span>NEXT.JS</span> <span>DOCKER</span> <span>KUBERNETES</span> <span>POSTGRESQL</span> <span>REDIS</span> 
@@ -602,7 +602,7 @@
         </div>
     </div>
 
-    <!-- 技術 Q&A 區塊 -->
+    <!-- ＦＲ科技公司版權所有 -->
     <section class="section" id="faq">
         <div class="section-title">
             <span>TECHNICAL Q&A</span>
@@ -624,7 +624,7 @@
         </div>
     </section>
 
-    <!-- 頁尾 -->
+    <!-- ＦＲ科技公司版權所有 -->
     <footer>
         <div class="footer-col">
             <h2 class="logo">FR TECH.</h2>
@@ -653,14 +653,14 @@
         </div>
     </footer>
 
-    <!-- 右下角懸浮按鈕 -->
+    <!-- ＦＲ科技公司版權所有 -->
     <div class="floating-group">
         <a href="https://sites.google.com/view/top-10-tech-company-websites/fr-10%E5%A4%A7%E7%B6%B2%E7%AB%99?authuser=5" class="f-btn btn-fr10" target="_blank">FR<br>10</a>
         <a href="https://discord.gg/gVUmJK6s2Q" class="f-btn btn-discord" target="_blank"><i class="fab fa-discord"></i></a>
     </div>
 
     <script>
-        // FAQ 折疊展開腳本
+        // ＦＲ科技公司版權所有
         document.querySelectorAll('.faq-item').forEach(item => {
             item.addEventListener('click', () => {
                 const a = item.querySelector('.faq-a');
